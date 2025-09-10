@@ -1,3 +1,9 @@
+:root {
+	--header-link-color: black;
+	--header-link-hover-color: #d1d5db; /* Tailwind's gray-300 */
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@plugin "@iconify/tailwind4";
