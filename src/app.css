@@ -1,6 +1,13 @@
-:root {
-	--header-link-color: black;
-	--header-link-hover-color: #d1d5db; /* Tailwind's gray-300 */
+/* app.css 或你的主樣式檔案 */
+@import 'tailwindcss';
+
+@theme {
+	--color-body: #4a4a4a;
+	--color-primary: #01ba0f;
+	--color-secondary: #ffffff;
+	--color-accent: #f59e0b;
+	--color-background: #f3f4f6;
+	--color-border: #e5e7eb;
 }
 
 @tailwind base;

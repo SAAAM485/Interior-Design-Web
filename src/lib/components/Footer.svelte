@@ -1,8 +1,16 @@
-<footer class="bg-gray-200 p-4 mt-8 flex flex-col items-center text-center">
+<footer
+	class="mt-8 flex flex-col items-center bg-background p-4 text-center text-primary md:justify-between"
+>
 	<p>&copy; 2025 Interior Design. All rights reserved.</p>
-	<div class="align-center flex w-[50vw] justify-evenly text-center">
-		<a href="https://facebook.com" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
-			<span class="w-6 h-6 icon-[mdi--facebook]"></span>
+	<div class="mt-4 flex w-[60vw] justify-evenly md:mt-0 md:justify-center">
+		<a
+			href="https://facebook.com"
+			aria-label="Facebook"
+			target="_blank"
+			rel="noopener noreferrer"
+			class="hover:text-secondary md:px-2"
+		>
+			<span class="icon-[mdi--facebook] h-6 w-6"></span>
 		</a>
 
 		<a
@@ -10,26 +18,29 @@
 			aria-label="Instagram"
 			target="_blank"
 			rel="noopener noreferrer"
+			class="hover:text-secondary md:px-2"
 		>
-			<span class="w-6 h-6 icon-[mdi--instagram]"></span>
+			<span class="icon-[mdi--instagram] h-6 w-6"></span>
 		</a>
 
-		<a href="https://youtube.com" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
-			<span class="w-6 h-6 icon-[mdi--youtube]"></span>
+		<a
+			href="https://youtube.com"
+			aria-label="YouTube"
+			target="_blank"
+			rel="noopener noreferrer"
+			class="hover:text-secondary md:px-2"
+		>
+			<span class="icon-[mdi--youtube] h-6 w-6"></span>
 		</a>
 
-		<a href="https://line.me" aria-label="Line" target="_blank" rel="noopener noreferrer">
-			<span class="w-6 h-6 icon-[simple-icons--line]"></span>
+		<a
+			href="https://line.me"
+			aria-label="Line"
+			target="_blank"
+			rel="noopener noreferrer"
+			class="hover:text-secondary md:px-2"
+		>
+			<span class="icon-[simple-icons--line] h-6 w-6"></span>
 		</a>
 	</div>
 </footer>
-
-<style>
-	a {
-		color: #ea580c; /* Tailwind's orange-600 */
-		transition: color 0.3s;
-	}
-	a:hover {
-		color: #1e40af; /* Tailwind's blue-800 */
-	}
-</style>
