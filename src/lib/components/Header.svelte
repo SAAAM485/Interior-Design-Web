@@ -1,4 +1,5 @@
 <script lang="ts">
+	import logo from '$lib/assets/images/logo.png';
 	let isMenuOpen = $state(false);
 
 	function toggleMenu() {
@@ -6,8 +7,13 @@
 	}
 </script>
 
-<header class="flex h-16 items-center justify-between bg-background p-4 text-primary">
-	<a href="/" class="text-lg font-bold">稻町設計</a>
+<header
+	class="flex h-16 items-center justify-between bg-background p-10 pr-5 pl-5 text-primary md:pr-20 md:pl-20"
+>
+	<div class="flex items-center gap-2">
+		<img src={logo} alt="Logo" class="h-10 w-10" />
+		<a href="/" class="text-lg font-bold">稻町設計</a>
+	</div>
 
 	<!-- Desktop Navigation -->
 	<nav class="hidden md:flex">
