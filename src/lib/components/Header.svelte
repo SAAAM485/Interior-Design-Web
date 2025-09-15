@@ -31,12 +31,12 @@
 	<!-- Mobile Menu -->
 	{#if isMenuOpen}
 		<div
-			class="absolute top-16 right-0 flex w-full flex-col items-center bg-background p-4 md:hidden"
+			class="absolute top-16 right-0 z-1 flex w-full flex-col items-center bg-background p-4 md:hidden"
 		>
-			<a href="/about" class="py-2">關於我們</a>
-			<a href="/projects" class="py-2">專案作品</a>
-			<a href="/process" class="py-2">服務流程</a>
-			<a href="/contact" class="py-2">聯絡我們</a>
+			<a href="/about" onclick={toggleMenu} class="py-2">關於我們</a>
+			<a href="/projects" onclick={toggleMenu} class="py-2">專案作品</a>
+			<a href="/process" onclick={toggleMenu} class="py-2">服務流程</a>
+			<a href="/contact" onclick={toggleMenu} class="py-2">聯絡我們</a>
 		</div>
 	{/if}
 </header>
