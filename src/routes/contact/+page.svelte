@@ -5,13 +5,13 @@
             期待能為您服務，請填寫以下表單，我們將盡快與您聯繫。
         </p>
         <form 
-            name="contact" 
+            name="contact-form" 
             method="POST" 
             netlify 
             data-sveltekit-reload
             class="space-y-6 rounded-lg bg-white p-8 shadow-lg"
         >
-            <input type="hidden" name="form-name" value="contact" />
+            <input type="hidden" name="form-name" value="contact-form" />
             
             <div class="grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-2">
                 <div>
