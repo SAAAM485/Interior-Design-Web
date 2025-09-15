@@ -6,7 +6,8 @@
         </p>
         <form 
             name="contact-form" 
-            method="POST" 
+            method="POST"
+            action="/"
             netlify 
             data-sveltekit-reload
             class="space-y-6 rounded-lg bg-white p-8 shadow-lg"
