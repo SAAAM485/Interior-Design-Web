@@ -7,7 +7,6 @@
         <form 
             name="contact-form" 
             method="POST"
-            action="/"
             netlify
             netlify-honeypot="bot-field"
             class="space-y-6 rounded-lg bg-white p-8 shadow-lg"
