@@ -30,6 +30,7 @@
 				method="POST"
 				action="/thank-you.html"
 				netlify
+				data-netlify="true"
 				netlify-honeypot="bot-field"
 				class="ed-lg w-full space-y-6 bg-white p-8 md:w-[40vw]"
 			>
