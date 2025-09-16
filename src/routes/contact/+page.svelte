@@ -28,7 +28,7 @@
 			<form
 				name="contact-form"
 				method="POST"
-				action="/thank-you.html"
+				action="/thank-you"
 				netlify
 				data-netlify="true"
 				netlify-honeypot="bot-field"
