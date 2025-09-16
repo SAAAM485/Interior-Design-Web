@@ -1,4 +1,5 @@
 <script lang="ts">
+	import TestImage from '$lib/components/TestImage.svelte';
 	import Inview from '$lib/components/Inview.svelte';
 	// Correct usage according to vite-imagetools documentation for `as=picture`
 	import main from '$lib/assets/images/home/main.jpg?w=800;1600&format=webp;jpg&as=picture';
@@ -8,6 +9,7 @@
 	import portrait2 from '$lib/assets/images/home/portrait2.jpg?w=400;800&format=webp;jpg&as=picture';
 </script>
 
+<TestImage />
 <div class="relative w-full">
 	<picture>
 		{#each main.sources as source}

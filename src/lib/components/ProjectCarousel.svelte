@@ -29,15 +29,23 @@
 <div class="swiper-container w-full overflow-hidden">
 	<div class="swiper-wrapper py-8">
 		{#each projects as project}
-			{@const imageUrl = getOptimizedImage(project.coverImage)}
+			{@const image = getOptimizedImage(project.coverImage)}
 			<a href="/projects/{project.slug}" class="swiper-slide group block rounded-lg bg-gray-800">
-				<div class="relative w-full overflow-hidden rounded-lg aspect-[3/4]">
-					{#if imageUrl && typeof imageUrl === 'string'}
-						<img
-							src={`${imageUrl}?w=800&format=webp`}
-							alt={project.title}
-							class="h-full w-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
-						/>
+				<div class="relative aspect-[3/4] w-full overflow-hidden rounded-lg">
+					{#if image && image.sources && image.img}
+						<picture>
+							{#if image.sources.avif}
+								<source srcset={image.sources.avif} type="image/avif" />
+							{/if}
+							{#if image.sources.webp}
+								<source srcset={image.sources.webp} type="image/webp" />
+							{/if}
+							<img
+								src={image.img.src}
+								alt={project.title}
+								class="h-full w-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
+							/>
+						</picture>
 					{/if}
 					<div
 						class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"

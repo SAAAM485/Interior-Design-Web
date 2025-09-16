@@ -12,16 +12,24 @@
 
   <div class="grid grid-cols-1 gap-8 sm:grid-cols-2">
     {#each project.images as imageInfo}
-      {@const imageUrl = getOptimizedImage(imageInfo.src)}
+      {@const image = getOptimizedImage(imageInfo.src)}
       <div class="flex flex-col gap-2">
-        {#if imageUrl && typeof imageUrl === 'string'}
+        {#if image && image.sources && image.img}
           <div class="overflow-hidden rounded-lg shadow-lg">
-            <img 
-              src={`${imageUrl}?w=1200&format=webp`}
-              alt={imageInfo.alt}
-              class="h-full w-full object-cover"
-              loading="lazy"
-            />
+            <picture>
+              {#if image.sources.avif}
+                <source srcset={image.sources.avif} type="image/avif">
+              {/if}
+              {#if image.sources.webp}
+                <source srcset={image.sources.webp} type="image/webp">
+              {/if}
+              <img 
+                src={image.img.src}
+                alt={imageInfo.alt}
+                class="h-full w-full object-cover"
+                loading="lazy"
+              />
+            </picture>
           </div>
         {/if}
         <p class="text-center text-sm text-gray-500">{imageInfo.alt}</p>

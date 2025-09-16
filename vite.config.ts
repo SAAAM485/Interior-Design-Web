@@ -4,5 +4,10 @@ import { defineConfig } from 'vite';
 import { imagetools } from 'vite-imagetools';
 
 export default defineConfig({
-	plugins: [imagetools(), tailwindcss(), sveltekit()]
+	plugins: [imagetools(), tailwindcss(), sveltekit()],
+	server: {
+		mimeTypes: {
+			'.webp': 'image/webp'
+		}
+	}
 });
