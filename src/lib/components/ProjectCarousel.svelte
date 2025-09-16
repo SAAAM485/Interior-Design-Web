@@ -26,12 +26,12 @@
 	});
 </script>
 
-<div class="swiper-container w-full overflow-hidden">
+<div class="swiper-container w-full overflow-hidden md:p-20 md:pt-0 md:pb-0">
 	<div class="swiper-wrapper py-8">
 		{#each projects as project}
 			{@const image = getOptimizedImage(project.coverImage)}
-			<a href="/projects/{project.slug}" class="swiper-slide group block rounded-lg bg-gray-800">
-				<div class="relative aspect-[3/4] w-full overflow-hidden rounded-lg">
+			<a href="/projects/{project.slug}" class="swiper-slide group block bg-gray-800">
+				<div class="relative aspect-[3/4] w-full overflow-hidden">
 					{#if image && image.sources && image.img}
 						<picture>
 							{#if image.sources.avif}

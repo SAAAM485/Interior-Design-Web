@@ -1,28 +1,38 @@
 <script lang="ts">
-	import TestImage from '$lib/components/TestImage.svelte';
 	import Inview from '$lib/components/Inview.svelte';
-	// Correct usage according to vite-imagetools documentation for `as=picture`
-	import main from '$lib/assets/images/home/main.jpg?w=800;1600&format=webp;jpg&as=picture';
-	import sPortrait from '$lib/assets/images/about/portrait.jpg?w=400;600;1200&flop&format=webp;jpg&as=picture';
-	import bottom from '$lib/assets/images/home/bottom.jpg?w=800;1600&format=webp;jpg&as=picture';
-	import portrait1 from '$lib/assets/images/home/portrait1.jpg?w=400;800&format=webp;jpg&as=picture';
-	import portrait2 from '$lib/assets/images/home/portrait2.jpg?w=400;800&format=webp;jpg&as=picture';
+	import { getOptimizedImage } from '$lib/data/image-loader';
+
+	// 移除直接的圖片導入，改為從 image-loader 獲取
+	const main = getOptimizedImage('/src/lib/assets/images/home/main.jpg');
+	const sPortrait = getOptimizedImage('/src/lib/assets/images/about/portrait.jpg');
+	const bottom = getOptimizedImage('/src/lib/assets/images/home/bottom.jpg');
+	const portrait1 = getOptimizedImage('/src/lib/assets/images/home/portrait1.jpg');
+	const portrait2 = getOptimizedImage('/src/lib/assets/images/home/portrait2.jpg');
 </script>
 
-<TestImage />
 <div class="relative w-full">
-	<picture>
-		{#each main.sources as source}
-			<source srcset={source.srcset} type={source.type} />
-		{/each}
-		<img src={main.img.src} alt="A main pic" class="hidden h-auto w-full md:block" />
-	</picture>
-	<picture>
-		{#each portrait1.sources as source}
-			<source srcset={source.srcset} type={source.type} />
-		{/each}
-		<img src={portrait1.img.src} alt="A main pic" class="m-0 block h-auto w-full md:hidden" />
-	</picture>
+	{#if main && main.sources && main.img}
+		<picture>
+			{#if main.sources.avif}
+				<source srcset={main.sources.avif} type="image/avif" />
+			{/if}
+			{#if main.sources.webp}
+				<source srcset={main.sources.webp} type="image/webp" />
+			{/if}
+			<img src={main.img.src} alt="A main pic" class="hidden h-auto w-full md:block" />
+		</picture>
+	{/if}
+	{#if portrait1 && portrait1.sources && portrait1.img}
+		<picture>
+			{#if portrait1.sources.avif}
+				<source srcset={portrait1.sources.avif} type="image/avif" />
+			{/if}
+			{#if portrait1.sources.webp}
+				<source srcset={portrait1.sources.webp} type="image/webp" />
+			{/if}
+			<img src={portrait1.img.src} alt="A main pic" class="m-0 block h-auto w-full md:hidden" />
+		</picture>
+	{/if}
 	<Inview>
 		<div class="absolute bottom-15 left-5 md:bottom-20 md:left-25">
 			<h1 class="text-sm font-bold text-secondary drop-shadow-lg md:mb-5 md:text-4xl">稻町設計</h1>
@@ -35,12 +45,17 @@
 </div>
 <Inview>
 	<div class="relative m-0 w-full text-center md:mt-20 md:mb-20">
-		<picture>
-			{#each portrait2.sources as source}
-				<source srcset={source.srcset} type={source.type} />
-			{/each}
-			<img src={portrait2.img.src} alt="A main pic" class="m-0 block h-auto w-full md:hidden" />
-		</picture>
+		{#if portrait2 && portrait2.sources && portrait2.img}
+			<picture>
+				{#if portrait2.sources.avif}
+					<source srcset={portrait2.sources.avif} type="image/avif" />
+				{/if}
+				{#if portrait2.sources.webp}
+					<source srcset={portrait2.sources.webp} type="image/webp" />
+				{/if}
+				<img src={portrait2.img.src} alt="A main pic" class="m-0 block h-auto w-full md:hidden" />
+			</picture>
+		{/if}
 		<p
 			class="absolute top-1/2 left-1/2 w-[80vw] -translate-1/2 border border-solid border-secondary p-5 text-xs text-secondary md:relative md:top-auto md:left-auto md:m-auto md:w-[60vw] md:translate-none md:border-paragraph md:p-20 md:pt-10 md:pb-10 md:text-base md:text-paragraph"
 		>
@@ -50,42 +65,62 @@
 </Inview>
 <Inview>
 	<div class="hidden md:flex md:w-full md:items-center md:justify-between">
-		<picture>
-			{#each sPortrait.sources as source}
-				<source srcset={source.srcset} type={source.type} />
-			{/each}
-			<img src={sPortrait.img.src} alt="A main pic" class="h-auto w-[16vw]" />
-		</picture>
-		<picture>
-			{#each sPortrait.sources as source}
-				<source srcset={source.srcset} type={source.type} />
-			{/each}
-			<img src={sPortrait.img.src} alt="A main pic" class="h-auto w-[16vw]" />
-		</picture>
-		<picture>
-			{#each sPortrait.sources as source}
-				<source srcset={source.srcset} type={source.type} />
-			{/each}
-			<img src={sPortrait.img.src} alt="A main pic" class="h-auto w-[16vw]" />
-		</picture>
-		<picture>
-			{#each sPortrait.sources as source}
-				<source srcset={source.srcset} type={source.type} />
-			{/each}
-			<img src={sPortrait.img.src} alt="A main pic" class="h-auto w-[16vw]" />
-		</picture>
-		<picture>
-			{#each sPortrait.sources as source}
-				<source srcset={source.srcset} type={source.type} />
-			{/each}
-			<img src={sPortrait.img.src} alt="A main pic" class="h-auto w-[16vw]" />
-		</picture>
-		<picture>
-			{#each sPortrait.sources as source}
-				<source srcset={source.srcset} type={source.type} />
-			{/each}
-			<img src={sPortrait.img.src} alt="A main pic" class="h-auto w-[16vw]" />
-		</picture>
+		{#if sPortrait && sPortrait.sources && sPortrait.img}
+			<picture>
+				{#if sPortrait.sources.avif}
+					<source srcset={sPortrait.sources.avif} type="image/avif" />
+				{/if}
+				{#if sPortrait.sources.webp}
+					<source srcset={sPortrait.sources.webp} type="image/webp" />
+				{/if}
+				<img src={sPortrait.img.src} alt="A main pic" class="h-auto w-[16vw]" />
+			</picture>
+			<picture>
+				{#if sPortrait.sources.avif}
+					<source srcset={sPortrait.sources.avif} type="image/avif" />
+				{/if}
+				{#if sPortrait.sources.webp}
+					<source srcset={sPortrait.sources.webp} type="image/webp" />
+				{/if}
+				<img src={sPortrait.img.src} alt="A main pic" class="h-auto w-[16vw]" />
+			</picture>
+			<picture>
+				{#if sPortrait.sources.avif}
+					<source srcset={sPortrait.sources.avif} type="image/avif" />
+				{/if}
+				{#if sPortrait.sources.webp}
+					<source srcset={sPortrait.sources.webp} type="image/webp" />
+				{/if}
+				<img src={sPortrait.img.src} alt="A main pic" class="h-auto w-[16vw]" />
+			</picture>
+			<picture>
+				{#if sPortrait.sources.avif}
+					<source srcset={sPortrait.sources.avif} type="image/avif" />
+				{/if}
+				{#if sPortrait.sources.webp}
+					<source srcset={sPortrait.sources.webp} type="image/webp" />
+				{/if}
+				<img src={sPortrait.img.src} alt="A main pic" class="h-auto w-[16vw]" />
+			</picture>
+			<picture>
+				{#if sPortrait.sources.avif}
+					<source srcset={sPortrait.sources.avif} type="image/avif" />
+				{/if}
+				{#if sPortrait.sources.webp}
+					<source srcset={sPortrait.sources.webp} type="image/webp" />
+				{/if}
+				<img src={sPortrait.img.src} alt="A main pic" class="h-auto w-[16vw]" />
+			</picture>
+			<picture>
+				{#if sPortrait.sources.avif}
+					<source srcset={sPortrait.sources.avif} type="image/avif" />
+				{/if}
+				{#if sPortrait.sources.webp}
+					<source srcset={sPortrait.sources.webp} type="image/webp" />
+				{/if}
+				<img src={sPortrait.img.src} alt="A main pic" class="h-auto w-[16vw]" />
+			</picture>
+		{/if}
 	</div>
 </Inview>
 
@@ -110,19 +145,29 @@
 			</Inview>
 		</div>
 
-		<picture>
-			{#each sPortrait.sources as source}
-				<source srcset={source.srcset} type={source.type} />
-			{/each}
-			<img src={sPortrait.img.src} alt="A main pic" class="h-auto w-[100vw] md:w-[40vw]" />
-		</picture>
+		{#if sPortrait && sPortrait.sources && sPortrait.img}
+			<picture>
+				{#if sPortrait.sources.avif}
+					<source srcset={sPortrait.sources.avif} type="image/avif" />
+				{/if}
+				{#if sPortrait.sources.webp}
+					<source srcset={sPortrait.sources.webp} type="image/webp" />
+				{/if}
+				<img src={sPortrait.img.src} alt="A main pic" class="h-auto w-[100vw] md:w-[40vw]" />
+			</picture>
+		{/if}
 	</div>
 </Inview>
 <Inview>
-	<picture>
-		{#each bottom.sources as source}
-			<source srcset={source.srcset} type={source.type} />
-		{/each}
-		<img src={bottom.img.src} alt="A main pic" class="mt-10 h-auto w-[100vw] md:mt-25 md:mb-15" />
-	</picture>
+	{#if bottom && bottom.sources && bottom.img}
+		<picture>
+			{#if bottom.sources.avif}
+				<source srcset={bottom.sources.avif} type="image/avif" />
+			{/if}
+			{#if bottom.sources.webp}
+				<source srcset={bottom.sources.webp} type="image/webp" />
+			{/if}
+			<img src={bottom.img.src} alt="A main pic" class="mt-10 h-auto w-[100vw]" />
+		</picture>
+	{/if}
 </Inview>

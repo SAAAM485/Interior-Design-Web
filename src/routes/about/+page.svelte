@@ -1,16 +1,30 @@
 <script lang="ts">
 	import Inview from '$lib/components/Inview.svelte';
-	import portrait from '$lib/assets/images/about/portrait.jpg?w=400;600;1200&flop&format=webp;jpg&as=picture';
+	import { getOptimizedImage } from '$lib/data/image-loader';
 	import signature from '$lib/assets/images/about/signature.png';
+
+	// 移除直接的圖片導入，改為從 image-loader 獲取
+	const portrait = getOptimizedImage('/src/lib/assets/images/about/portrait.jpg');
 </script>
 
+<Inview>
+	<div class="m-auto mt-10 mb-10 hidden w-[90vw] text-center md:block">
+		<h1 class="mb-3 text-center text-2xl font-bold text-primary">關於我們</h1>
+		<hr class="border border-primary" />
+	</div>
+</Inview>
 <div class="relative m-0 block w-full md:flex md:items-center md:justify-around md:p-20">
-	<picture>
-		{#each portrait.sources as source}
-			<source srcset={source.srcset} type={source.type} />
-		{/each}
-		<img src={portrait.img.src} alt="A portrait" class="block h-auto w-full md:w-[40vw]" />
-	</picture>
+	{#if portrait && portrait.sources && portrait.img}
+		<picture>
+			{#if portrait.sources.avif}
+				<source srcset={portrait.sources.avif} type="image/avif" />
+			{/if}
+			{#if portrait.sources.webp}
+				<source srcset={portrait.sources.webp} type="image/webp" />
+			{/if}
+			<img src={portrait.img.src} alt="A portrait" class="block h-auto w-full md:w-[40vw]" />
+		</picture>
+	{/if}
 
 	<div
 		class="absolute top-1/2 left-1/2 m-auto w-[75vw] -translate-1/2 p-0 md:relative md:top-auto md:left-auto md:flex md:h-[60vh] md:w-[40vw] md:translate-none md:items-center md:justify-center md:bg-background"

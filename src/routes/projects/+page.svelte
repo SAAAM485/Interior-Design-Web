@@ -1,8 +1,14 @@
 <script lang="ts">
+	import Inview from '$lib/components/Inview.svelte';
 	import ProjectCarousel from '$lib/components/ProjectCarousel.svelte';
 </script>
 
-<div class="container mx-auto py-8">
-	<h1 class="mb-8 text-center text-4xl font-bold">Our Projects</h1>
-    <ProjectCarousel />
-</div>
+<Inview>
+	<div class="m-auto mt-10 mb-10 hidden w-[90vw] text-center md:block">
+		<h1 class="mb-3 text-center text-2xl font-bold text-primary">專案作品</h1>
+		<hr class="border border-primary" />
+	</div>
+</Inview>
+<Inview>
+	<ProjectCarousel />
+</Inview>
