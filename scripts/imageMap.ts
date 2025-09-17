@@ -3,7 +3,7 @@ import path from 'path';
 
 const IMAGES_DIR = path.resolve('./src/lib/assets/images');
 const OUT_FILE = path.resolve('./src/lib/image-map.ts');
-const QUERY = '?w=400;800&format=avif;webp;jpg&as=picture';
+const QUERY = '?w=400;800;1600&format=avif;webp;jpg&as=picture';
 
 function walk(dir) {
 	const files = [];
