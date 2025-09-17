@@ -7,8 +7,8 @@
 </script>
 
 <div class="container mx-auto px-4 py-12">
-	<h1 class="mb-4 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">{project.title}</h1>
-	<p class="mb-12 text-xl text-gray-600">{project.description}</p>
+	<h1 class="mb-4 text-4xl font-bold tracking-tight text-secondary sm:text-5xl">{project.title}</h1>
+	<p class="mb-12 text-xl text-secondary">{project.description}</p>
 
 	<div class="grid grid-cols-1 gap-8 sm:grid-cols-2">
 		{#each project.images as imageInfo}
@@ -32,7 +32,7 @@
 						</picture>
 					</div>
 				{/if}
-				<p class="text-center text-sm text-gray-500">{imageInfo.alt}</p>
+				<p class="text-center text-sm text-paragraph">{imageInfo.alt}</p>
 			</div>
 		{/each}
 	</div>

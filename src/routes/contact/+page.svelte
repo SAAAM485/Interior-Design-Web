@@ -7,8 +7,8 @@
 
 <Inview>
 	<div class="m-auto mt-10 hidden w-[90vw] text-center md:block">
-		<h1 class="mb-3 text-center text-2xl font-bold text-primary">聯絡我們</h1>
-		<hr class="border border-primary" />
+		<h1 class="mb-3 text-center text-2xl font-bold text-secondary">聯絡我們</h1>
+		<hr class="border border-secondary" />
 	</div>
 </Inview>
 <div class="container mx-auto p-4 py-12 md:py-20">
@@ -22,7 +22,11 @@
 					{#if square.sources.webp}
 						<source srcset={square.sources.webp} type="image/webp" />
 					{/if}
-					<img src={square.img.src} alt="A square pic" class="h-auto w-[100vw] md:w-[40vw]" />
+					<img
+						src={square.img.src}
+						alt="A square pic"
+						class="h-auto w-[100vw] rounded-2xl md:w-[40vw]"
+					/>
 				</picture>
 			{/if}
 			<form
@@ -32,7 +36,7 @@
 				netlify
 				data-netlify="true"
 				netlify-honeypot="bot-field"
-				class="ed-lg w-full space-y-6 bg-white p-8 md:w-[40vw]"
+				class="ed-lg w-full space-y-6 rounded-2xl bg-block p-8 md:w-[40vw]"
 			>
 				<input type="hidden" name="form-name" value="contact-form" />
 				<p class="hidden">
@@ -98,18 +102,30 @@
 					</div>
 
 					<div>
-						<label for="house-condition" class="block text-sm font-medium text-paragraph"
-							>屋況</label
+						<label for="house-type" class="block text-sm font-medium text-paragraph">房屋類型</label
 						>
 						<select
-							id="house-condition"
-							name="house-condition"
+							id="house-type"
+							name="house-type"
 							class="form-select mt-1 block w-full border border-paragraph p-2 text-paragraph focus:border-indigo-500 focus:ring-indigo-500"
 						>
-							<option>新屋</option>
+							<option>新成屋</option>
 							<option>中古屋</option>
-							<option>商辦</option>
+							<option>商用空間</option>
+							<option>客變需求</option>
 						</select>
+					</div>
+
+					<div>
+						<label for="house-age" class="block text-sm font-medium text-paragraph">屋齡 (年)</label
+						>
+						<input
+							type="number"
+							name="house-age"
+							id="house-age"
+							required
+							class="form-input mt-1 block w-full border border-paragraph p-2 text-paragraph focus:border-indigo-500 focus:ring-indigo-500"
+						/>
 					</div>
 
 					<div>
@@ -122,6 +138,84 @@
 							id="square-footage"
 							class="form-input mt-1 block w-full border border-paragraph p-2 text-paragraph focus:border-indigo-500 focus:ring-indigo-500"
 						/>
+					</div>
+
+					<div class="sm:col-span-2">
+						<label class="block text-sm font-medium text-paragraph">居住人數</label>
+						<div class="mt-1 grid grid-cols-2 gap-x-4 gap-y-6 sm:grid-cols-4">
+							<div>
+								<label for="residents-adults" class="block text-xs text-paragraph">成人 (人)</label>
+								<select
+									id="residents-adults"
+									name="residents-adults"
+									class="form-select mt-1 block w-full border border-paragraph p-2 text-paragraph focus:border-indigo-500 focus:ring-indigo-500"
+								>
+									{#each Array(11).keys() as i}
+										<option>{i}</option>
+									{/each}
+								</select>
+							</div>
+							<div>
+								<label for="residents-children" class="block text-xs text-paragraph"
+									>小孩 (人)</label
+								>
+								<select
+									id="residents-children"
+									name="residents-children"
+									class="form-select mt-1 block w-full border border-paragraph p-2 text-paragraph focus:border-indigo-500 focus:ring-indigo-500"
+								>
+									{#each Array(11).keys() as i}
+										<option>{i}</option>
+									{/each}
+								</select>
+							</div>
+							<div>
+								<label for="residents-elders" class="block text-xs text-paragraph">長輩 (人)</label>
+								<select
+									id="residents-elders"
+									name="residents-elders"
+									class="form-select mt-1 block w-full border border-paragraph p-2 text-paragraph focus:border-indigo-500 focus:ring-indigo-500"
+								>
+									{#each Array(11).keys() as i}
+										<option>{i}</option>
+									{/each}
+								</select>
+							</div>
+							<div>
+								<label for="residents-pets" class="block text-xs text-paragraph">寵物 (隻)</label>
+								<select
+									id="residents-pets"
+									name="residents-pets"
+									class="form-select mt-1 block w-full border border-paragraph p-2 text-paragraph focus:border-indigo-500 focus:ring-indigo-500"
+								>
+									{#each Array(11).keys() as i}
+										<option>{i}</option>
+									{/each}
+								</select>
+							</div>
+						</div>
+					</div>
+
+					<div class="sm:col-span-2">
+						<label for="budget-range" class="block text-sm font-medium text-paragraph"
+							>預算範圍</label
+						>
+						<select
+							id="budget-range"
+							name="budget-range"
+							class="form-select mt-1 block w-full border border-paragraph p-2 text-paragraph focus:border-indigo-500 focus:ring-indigo-500"
+						>
+							<option>120萬</option>
+							<option>150萬</option>
+							<option>200萬</option>
+							<option>250萬</option>
+							<option>300萬</option>
+							<option>350萬</option>
+							<option>400萬</option>
+							<option>450萬</option>
+							<option>500萬</option>
+							<option>500萬以上</option>
+						</select>
 					</div>
 
 					<div>
@@ -138,6 +232,18 @@
 							<option>15:00-18:00</option>
 							<option>18:00-21:00</option>
 						</select>
+					</div>
+
+					<div>
+						<label for="completion-date" class="block text-sm font-medium text-paragraph"
+							>希望完工日期 (選填)</label
+						>
+						<input
+							type="date"
+							name="completion-date"
+							id="completion-date"
+							class="form-input mt-1 block w-full border border-paragraph p-2 text-paragraph focus:border-indigo-500 focus:ring-indigo-500"
+						/>
 					</div>
 				</div>
 
@@ -158,7 +264,7 @@
 				<div>
 					<button
 						type="submit"
-						class="flex w-full justify-center border border-transparent bg-paragraph px-4 py-3 text-base font-medium text-secondary hover:bg-secondary hover:text-paragraph focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:outline-none"
+						class="flex w-full justify-center border border-transparent bg-paragraph px-4 py-3 text-base font-medium text-mb hover:bg-mb hover:text-paragraph focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:outline-none"
 					>
 						送出表單
 					</button>

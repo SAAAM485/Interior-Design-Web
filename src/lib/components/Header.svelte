@@ -8,11 +8,11 @@
 </script>
 
 <header
-	class="flex h-16 items-center justify-between bg-background p-10 pr-5 pl-5 text-primary md:pr-20 md:pl-20"
+	class="fixed top-0 left-0 z-2 flex h-16 w-full items-center justify-between bg-background p-10 pr-5 pl-5 text-primary md:pr-20 md:pl-20"
 >
-	<div class="flex items-center gap-2">
+	<div class="flex items-center gap-5">
 		<img src={logo} alt="Logo" class="h-10 w-10" />
-		<a href="/" class="text-lg font-bold">稻町設計</a>
+		<a href="/" class="text-3xl font-bold">稻町設計</a>
 	</div>
 
 	<!-- Desktop Navigation -->

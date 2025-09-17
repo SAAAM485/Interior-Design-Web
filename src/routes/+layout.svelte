@@ -9,7 +9,7 @@
 <div class="flex min-h-screen flex-col">
 	<Header />
 
-	<main class="flex-grow content-center">
+	<main class="mt-20 flex-grow content-center">
 		{@render children?.()}
 	</main>
 

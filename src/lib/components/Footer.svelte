@@ -2,7 +2,7 @@
 	class="mt-8 flex flex-col items-center bg-background p-4 text-center text-primary md:justify-between"
 >
 	<p>&copy; 2025 Interior Design. All rights reserved.</p>
-	<div class="mt-4 flex w-[60vw] justify-evenly md:mt-0 md:justify-center">
+	<div class="mt-3 flex w-[60vw] justify-evenly md:justify-center">
 		<a
 			href="https://facebook.com"
 			aria-label="Facebook"
