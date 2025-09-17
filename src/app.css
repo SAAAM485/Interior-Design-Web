@@ -11,7 +11,14 @@
 	--color-paragraph: var(--color-slate-500);
 	--color-mb: var(--color-slate-50);
 
-	--color-border: #e5e7eb;
+	--color-dark-body: var(--color-slate-950);
+	--color-dark-background: var(--color-slate-900);
+	--color-dark-block: var(--color-neutral-950);
+	--color-dark-primary: var(--color-neutral-300);
+	--color-dark-secondary: var(--color-neutral-400);
+	--color-dark-paragraph: var(--color-neutral-500);
+	--color-dark-mb: var(--color-neutral-700);
+
 	--breakpoint-md: 56.25rem; /* 900px */
 }
 body {

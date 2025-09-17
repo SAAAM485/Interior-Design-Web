@@ -5,8 +5,10 @@
 
 <Inview>
 	<div class="m-auto mt-10 mb-10 hidden w-[90vw] text-center md:block">
-		<h1 class="mb-3 text-center text-2xl font-bold text-secondary">專案作品</h1>
-		<hr class="border border-secondary" />
+		<h1 class="mb-3 text-center text-2xl font-bold text-secondary dark:text-dark-secondary">
+			專案作品
+		</h1>
+		<hr class="border border-secondary dark:border-dark-secondary" />
 	</div>
 </Inview>
 <Inview>

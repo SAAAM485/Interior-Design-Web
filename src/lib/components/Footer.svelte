@@ -1,5 +1,5 @@
 <footer
-	class="mt-8 flex flex-col items-center bg-background p-4 text-center text-primary md:justify-between"
+	class="mt-8 flex flex-col items-center bg-background p-4 text-center text-primary md:justify-between dark:bg-dark-background dark:text-dark-primary"
 >
 	<p>&copy; 2025 Interior Design. All rights reserved.</p>
 	<div class="mt-3 flex w-[60vw] justify-evenly md:justify-center">

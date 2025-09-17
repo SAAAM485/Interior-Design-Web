@@ -56,7 +56,7 @@
 			</picture>
 		{/if}
 		<p
-			class="absolute top-1/2 left-1/2 w-[80vw] -translate-1/2 border border-solid border-mb p-5 text-sm text-mb md:relative md:top-auto md:left-auto md:m-auto md:w-[60vw] md:translate-none md:border-paragraph md:p-20 md:pt-10 md:pb-10 md:text-base md:text-paragraph"
+			class="absolute top-1/2 left-1/2 w-[80vw] -translate-1/2 border border-solid border-mb p-5 text-sm text-mb md:relative md:top-auto md:left-auto md:m-auto md:w-[60vw] md:translate-none md:border-paragraph md:p-20 md:pt-10 md:pb-10 md:text-base md:text-paragraph md:dark:border-dark-paragraph md:dark:text-dark-paragraph"
 		>
 			當代室內設計強調「以人為本」，不僅追求美感，更重視空間與生活的連結。我們相信，設計不只是形式上的堆疊，而是對居住者需求的理解與回應。透過材質、光線與動線的配置，空間不只是容器，更是情感與記憶的延伸。我們以簡約而不失溫度的語彙，融合機能性與美學，打造能呼吸、有故事的生活場域。
 		</p>
@@ -130,11 +130,11 @@
 		>
 			<Inview>
 				<button
-					class="text-base font-bold text-mb drop-shadow-lg md:mb-5 md:border md:border-paragraph md:p-20 md:pt-5 md:pb-5 md:text-xl md:text-paragraph md:drop-shadow-none"
+					class="text-base font-bold text-mb drop-shadow-lg md:mb-5 md:border md:border-paragraph md:p-20 md:pt-5 md:pb-5 md:text-xl md:text-paragraph md:drop-shadow-none md:dark:border-dark-paragraph md:dark:text-dark-paragraph"
 					>專案作品</button
 				>
 				<hr
-					class="my-2 w-[80vw] border border-mb md:mb-5 md:w-[40vw] md:border md:border-paragraph"
+					class="my-2 w-[80vw] border border-mb md:mb-5 md:w-[40vw] md:border md:border-paragraph md:dark:border-dark-paragraph"
 				/>
 				<p
 					class="m-auto w-[79.5vw] text-sm text-mb drop-shadow-lg md:mb-5 md:w-[35vw] md:text-base md:text-paragraph md:drop-shadow-none"
