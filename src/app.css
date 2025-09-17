@@ -8,6 +8,7 @@
 	--color-paragraph: #f59e0b;
 	--color-background: #f3f4f6;
 	--color-border: #e5e7eb;
+	--breakpoint-md: 56.25rem; /* 900px */
 }
 body {
 	width: 100%;
