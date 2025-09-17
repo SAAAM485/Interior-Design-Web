@@ -38,7 +38,7 @@
 				netlify
 				data-netlify="true"
 				netlify-honeypot="bot-field"
-				class="ed-lg w-full space-y-6 rounded-2xl bg-block p-8 md:w-[40vw] md:dark:bg-dark-block"
+				class="ed-lg w-full space-y-6 rounded-2xl bg-block p-8 md:w-[40vw] dark:bg-dark-block"
 			>
 				<input type="hidden" name="form-name" value="contact-form" />
 				<p class="hidden">
