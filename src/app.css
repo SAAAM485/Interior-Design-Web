@@ -31,10 +31,6 @@ body {
 	margin: 0;
 }
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 @keyframes fade-in-up {
 	from {
 		opacity: 0;

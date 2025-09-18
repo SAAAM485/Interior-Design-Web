@@ -33,7 +33,10 @@
 		{#each projects as project}
 			{@const image = getOptimizedImage(project.coverImage)}
 			<!-- h-full is removed -->
-			<a href="/projects/{project.slug}" class="swiper-slide group block bg-gray-800">
+			<a
+				href="/projects/{project.slug}"
+				class="swiper-slide group block overflow-hidden rounded-sm bg-gray-800 md:rounded-xl"
+			>
 				<!-- w-full is restored, h-full is removed. Height is now driven by width + aspect ratio. -->
 				<div class="relative aspect-[3/4] w-full overflow-hidden">
 					{#if image && image.sources && image.img}

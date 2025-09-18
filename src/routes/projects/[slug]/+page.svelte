@@ -39,7 +39,9 @@
 					</picture>
 				</div>
 				{#if imageInfo.alt}
-					<figcaption class="mt-2 text-center text-sm text-paragraph dark:text-dark-paragraph">
+					<figcaption
+						class="mt-2 text-center text-sm text-paragraph md:text-left dark:text-dark-paragraph"
+					>
 						{imageInfo.alt}
 					</figcaption>
 				{/if}
