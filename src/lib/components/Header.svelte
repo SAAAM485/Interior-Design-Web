@@ -22,7 +22,7 @@
 		<a href="/projects" class="px-4">專案作品</a>
 		<a href="/process" class="px-4">服務流程</a>
 		<a href="/contact" class="px-4">聯絡我們</a>
-		<button onclick={theme.toggle} class="ml-4" aria-label="Toggle dark mode">
+		<button onclick={theme.toggle} class="ml-4 flex items-center" aria-label="Toggle dark mode">
 			{#if $theme === 'dark'}
 				<span class="icon-[mdi--white-balance-sunny] h-6 w-6"></span>
 			{:else}
@@ -31,10 +31,25 @@
 		</button>
 	</nav>
 
+	<div class="flex gap-3 md:hidden">
+		<button
+			onclick={() => {
+				theme.toggle();
+			}}
+			class="items-center"
+			aria-label="Toggle dark mode"
+		>
+			{#if $theme === 'dark'}
+				<span class="icon-[mdi--white-balance-sunny] h-6 w-6"></span>
+			{:else}
+				<span class="icon-[mdi--weather-night] h-6 w-6"></span>
+			{/if}
+		</button>
+		<button class="items-center" onclick={toggleMenu} aria-label="Open menu">
+			<span class="icon-[mdi--menu] h-6 w-6"></span>
+		</button>
+	</div>
 	<!-- Mobile Menu Button -->
-	<button class="md:hidden" onclick={toggleMenu} aria-label="Open menu">
-		<span class="icon-[mdi--menu] h-6 w-6"></span>
-	</button>
 
 	<!-- Mobile Menu -->
 	{#if isMenuOpen}
@@ -45,20 +60,6 @@
 			<a href="/projects" onclick={toggleMenu} class="py-2">專案作品</a>
 			<a href="/process" onclick={toggleMenu} class="py-2">服務流程</a>
 			<a href="/contact" onclick={toggleMenu} class="py-2">聯絡我們</a>
-			<button
-				onclick={() => {
-					theme.toggle();
-					toggleMenu();
-				}}
-				class="mt-4"
-				aria-label="Toggle dark mode"
-			>
-				{#if $theme === 'dark'}
-					<span class="icon-[mdi--white-balance-sunny] h-6 w-6"></span>
-				{:else}
-					<span class="icon-[mdi--weather-night] h-6 w-6"></span>
-				{/if}
-			</button>
 		</div>
 	{/if}
 </header>

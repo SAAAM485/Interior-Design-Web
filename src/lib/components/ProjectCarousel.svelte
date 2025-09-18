@@ -14,11 +14,12 @@
 			loop: true,
 			breakpoints: {
 				320: {
-					slidesPerView: 1,
-					spaceBetween: 20
+					slidesPerView: 1.2,
+					spaceBetween: 20,
+					centeredSlides: true
 				},
-				768: {
-					slidesPerView: 2,
+				900: {
+					slidesPerView: 2.66,
 					spaceBetween: 30
 				}
 			}
@@ -26,11 +27,14 @@
 	});
 </script>
 
-<div class="swiper-container w-full overflow-hidden md:p-20 md:pt-0 md:pb-0">
+<!-- Height is now dynamic, so md:h-[60vh] is removed -->
+<div class="swiper-container ml-2 overflow-hidden md:w-full md:p-20 md:pt-0 md:pb-0">
 	<div class="swiper-wrapper py-8">
 		{#each projects as project}
 			{@const image = getOptimizedImage(project.coverImage)}
+			<!-- h-full is removed -->
 			<a href="/projects/{project.slug}" class="swiper-slide group block bg-gray-800">
+				<!-- w-full is restored, h-full is removed. Height is now driven by width + aspect ratio. -->
 				<div class="relative aspect-[3/4] w-full overflow-hidden">
 					{#if image && image.sources && image.img}
 						<picture>

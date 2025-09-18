@@ -137,7 +137,7 @@
 					class="my-2 w-[80vw] border border-mb md:mb-5 md:w-[40vw] md:border md:border-paragraph md:dark:border-dark-paragraph"
 				/>
 				<p
-					class="m-auto w-[79.5vw] text-sm text-mb drop-shadow-lg md:mb-5 md:w-[35vw] md:text-base md:text-paragraph md:drop-shadow-none"
+					class="m-auto w-[79.5vw] text-sm text-mb drop-shadow-lg md:mb-5 md:w-[35vw] md:text-base md:text-paragraph md:drop-shadow-none md:dark:text-dark-paragraph"
 				>
 					當空間不再只是容器，而是情感與日常的延伸，設計成了一種生活的語言。在光影與材質之間尋找平衡，讓每一個角落蘊含細膩的溫度與節奏。無論是靜謐的居所或充滿動態的商業場域，每一件作品都是對生活美學的回應。進入作品之中，感受空間如何訴說屬於你的故事。
 				</p>
