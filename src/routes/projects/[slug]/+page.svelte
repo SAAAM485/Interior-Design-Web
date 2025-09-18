@@ -6,34 +6,44 @@
 	const { project } = $page.data as PageData;
 </script>
 
-<div class="container mx-auto px-4 py-12">
-	<h1 class="mb-4 text-4xl font-bold tracking-tight text-secondary sm:text-5xl">{project.title}</h1>
-	<p class="mb-12 text-xl text-secondary">{project.description}</p>
+<div class="container mx-auto px-8 py-12 md:px-30">
+	<h1
+		class="mb-4 text-4xl font-bold tracking-tight text-secondary sm:text-5xl dark:text-dark-secondary"
+	>
+		{project.title}
+	</h1>
+	<p class="mb-12 text-xl text-secondary dark:text-dark-secondary">{project.description}</p>
 
-	<div class="grid grid-cols-1 gap-8 sm:grid-cols-2">
+	<div class="masonry-container columns-1 gap-6 md:columns-2">
 		{#each project.images as imageInfo}
 			{@const image = getOptimizedImage(imageInfo.src)}
-			<div class="flex flex-col gap-2">
-				{#if image && image.sources && image.img}
-					<div class="overflow-hidden">
-						<picture>
-							{#if image.sources.avif}
-								<source srcset={image.sources.avif} type="image/avif" />
-							{/if}
-							{#if image.sources.webp}
-								<source srcset={image.sources.webp} type="image/webp" />
-							{/if}
-							<img
-								src={image.img.src}
-								alt={imageInfo.alt}
-								class="h-full w-full object-cover"
-								loading="lazy"
-							/>
-						</picture>
-					</div>
+			<figure class="masonry-item mb-6 break-inside-avoid">
+				<div
+					class="{imageInfo.orientation === 'portrait'
+						? 'aspect-[3/4]'
+						: 'aspect-[4/3]'} bg-muted overflow-hidden rounded-md"
+				>
+					<picture class="block h-full w-full">
+						{#if image?.sources?.avif}
+							<source srcset={image.sources.avif} type="image/avif" />
+						{/if}
+						{#if image?.sources?.webp}
+							<source srcset={image.sources.webp} type="image/webp" />
+						{/if}
+						<img
+							src={image.img.src}
+							alt={imageInfo.alt}
+							class="block h-full w-full object-cover"
+							loading="lazy"
+						/>
+					</picture>
+				</div>
+				{#if imageInfo.alt}
+					<figcaption class="mt-2 text-center text-sm text-paragraph dark:text-dark-paragraph">
+						{imageInfo.alt}
+					</figcaption>
 				{/if}
-				<p class="text-center text-sm text-paragraph">{imageInfo.alt}</p>
-			</div>
+			</figure>
 		{/each}
 	</div>
 </div>

@@ -1,6 +1,7 @@
 export interface ProjectImage {
 	src: string; // 圖片的原始路徑
 	alt: string; // 圖片說明文字
+	orientation?: 'landscape' | 'portrait'; // 圖片方向，可選
 }
 
 export interface Project {
@@ -19,10 +20,18 @@ export const projects: Project[] = [
 		description: '一個充滿陽光與簡約線條的現代居住空間。',
 		coverImage: '/src/lib/assets/images/home/main.jpg',
 		images: [
-			{ src: '/src/lib/assets/images/home/main.jpg', alt: '空間主視覺' },
-			{ src: '/src/lib/assets/images/home/portrait1.jpg', alt: '客廳一角' },
-			{ src: '/src/lib/assets/images/home/portrait2.jpg', alt: '臥室主視覺' },
-			{ src: '/src/lib/assets/images/home/bottom.jpg', alt: '設計細節' }
+			{ src: '/src/lib/assets/images/home/main.jpg', alt: '空間主視覺', orientation: 'landscape' },
+			{
+				src: '/src/lib/assets/images/home/portrait1.jpg',
+				alt: '客廳一角',
+				orientation: 'portrait'
+			},
+			{
+				src: '/src/lib/assets/images/home/portrait2.jpg',
+				alt: '臥室主視覺',
+				orientation: 'portrait'
+			},
+			{ src: '/src/lib/assets/images/home/bottom.jpg', alt: '設計細節', orientation: 'landscape' }
 		]
 	},
 	{
@@ -31,8 +40,16 @@ export const projects: Project[] = [
 		description: '專為放鬆和個人時光設計的溫馨角落。',
 		coverImage: '/src/lib/assets/images/home/portrait2.jpg',
 		images: [
-			{ src: '/src/lib/assets/images/home/portrait2.jpg', alt: '臥室主視覺' },
-			{ src: '/src/lib/assets/images/about/portrait.jpg', alt: '書房一角' }
+			{
+				src: '/src/lib/assets/images/home/portrait2.jpg',
+				alt: '臥室主視覺',
+				orientation: 'portrait'
+			},
+			{
+				src: '/src/lib/assets/images/about/portrait.jpg',
+				alt: '書房一角',
+				orientation: 'portrait'
+			}
 		]
 	},
 	{
@@ -40,6 +57,8 @@ export const projects: Project[] = [
 		title: '極簡功能設計',
 		description: '結合功能性與極簡美學的設計案例。',
 		coverImage: '/src/lib/assets/images/home/bottom.jpg',
-		images: [{ src: '/src/lib/assets/images/home/bottom.jpg', alt: '設計細節' }]
+		images: [
+			{ src: '/src/lib/assets/images/home/bottom.jpg', alt: '設計細節', orientation: 'landscape' }
+		]
 	}
 ];
