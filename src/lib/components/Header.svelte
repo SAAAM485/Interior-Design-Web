@@ -1,7 +1,11 @@
 <script lang="ts">
 	import logo from '$lib/assets/images/logo.png';
 	import { theme } from '$lib/theme.ts';
+	import { page } from '$app/stores';
 	let isMenuOpen = $state(false);
+
+	const navLinkClasses =
+		"relative after:absolute after:content-[''] after:bottom-1 md:after:bottom-[-0.25rem] after:left-0 after:h-[2px] md:after:left-[10%] md:after:w-[80%] after:bg-current after:origin-left after:scale-x-0 after:transition-transform after:duration-300";
 
 	function toggleMenu() {
 		isMenuOpen = !isMenuOpen;
@@ -18,10 +22,26 @@
 
 	<!-- Desktop Navigation -->
 	<nav class="hidden items-center md:flex">
-		<a href="/about" class="px-4">關於我們</a>
-		<a href="/projects" class="px-4">專案作品</a>
-		<a href="/process" class="px-4">服務流程</a>
-		<a href="/contact" class="px-4">聯絡我們</a>
+		<a
+			href="/about"
+			class="px-4 {navLinkClasses} {$page.url.pathname === '/about' && 'after:scale-x-100'}"
+			>關於我們</a
+		>
+		<a
+			href="/projects"
+			class="px-4 {navLinkClasses} {$page.url.pathname.startsWith('/projects') &&
+				'after:scale-x-100'}">專案作品</a
+		>
+		<a
+			href="/process"
+			class="px-4 {navLinkClasses} {$page.url.pathname === '/process' && 'after:scale-x-100'}"
+			>服務流程</a
+		>
+		<a
+			href="/contact"
+			class="px-4 {navLinkClasses} {$page.url.pathname === '/contact' && 'after:scale-x-100'}"
+			>聯絡我們</a
+		>
 		<button onclick={theme.toggle} class="ml-4 flex items-center" aria-label="Toggle dark mode">
 			{#if $theme === 'dark'}
 				<span class="icon-[mdi--white-balance-sunny] h-6 w-6"></span>
@@ -56,10 +76,30 @@
 		<div
 			class="absolute top-15 right-0 z-1 flex w-full flex-col items-center bg-background p-4 text-primary md:hidden dark:bg-dark-background dark:text-dark-primary"
 		>
-			<a href="/about" onclick={toggleMenu} class="py-2">關於我們</a>
-			<a href="/projects" onclick={toggleMenu} class="py-2">專案作品</a>
-			<a href="/process" onclick={toggleMenu} class="py-2">服務流程</a>
-			<a href="/contact" onclick={toggleMenu} class="py-2">聯絡我們</a>
+			<a
+				href="/about"
+				onclick={toggleMenu}
+				class="py-2 {navLinkClasses} {$page.url.pathname === '/about' && 'after:scale-x-100'}"
+				>關於我們</a
+			>
+			<a
+				href="/projects"
+				onclick={toggleMenu}
+				class="py-2 {navLinkClasses} {$page.url.pathname.startsWith('/projects') &&
+					'after:scale-x-100'}">專案作品</a
+			>
+			<a
+				href="/process"
+				onclick={toggleMenu}
+				class="py-2 {navLinkClasses} {$page.url.pathname === '/process' && 'after:scale-x-100'}"
+				>服務流程</a
+			>
+			<a
+				href="/contact"
+				onclick={toggleMenu}
+				class="py-2 {navLinkClasses} {$page.url.pathname === '/contact' && 'after:scale-x-100'}"
+				>聯絡我們</a
+			>
 		</div>
 	{/if}
 </header>
