@@ -136,7 +136,7 @@ This project uses a Google Apps Script to automatically send contact form submis
 4.  **Configure Netlify:**
     - Go to your site's dashboard on Netlify.
     - Navigate to `Project Overview` > `Forms`.
-    - Active the `Form Detection`.
+    - Activate the `Form Detection`.
     - Navigate to `Project Cofiguration` > `Emails and Webhooks`.
     - In the `Form submission notifications` section, add a new notification and choose **"HTTP Post Request"**.
     - **Event to listen for:** `New Form Submission`.
